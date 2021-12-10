@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">RecipeBook</string>
+    <!--  GLOBAL APP STRINGS -->
+    <string name="app_name">Recipe Book</string>
+
+    <!--  LOGIN ACTIVITY  -->
+    <string name="login_button_text">LOGIN</string>
+    <string name="register_text">New Here? Register Here</string>
+    <string name="login_description">Please Enter Login Credentials</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+
+    <!--  REGISTER ACTIVITY  -->
+    <string name="register_button_text">REGISTER</string>
+    <string name="login_text">Already Registered? Login Here</string>
+    <string name="register_description">Create New Account</string>
+    <string name="full_name_hint">Full Name</string>
+    <string name="register_email_hint">Email</string>
+    <string name="register_password_hint">Password</string>
+
+    <!--  MAIN RECIPE ACTIVITY  -->
+    <string name="logout_button_text">LOG OUT</string>
+
 </resources>
