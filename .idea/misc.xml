@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Calvin/AndroidStudioProjects/RecipeBook/app/src/main/res/drawable/button_dropshadow.xml" value="0.246875" />
+        <entry key="..\:/Users/Calvin/AndroidStudioProjects/RecipeBook/app/src/main/res/drawable/shadow_button_layer.xml" value="0.246875" />
         <entry key="..\:/Users/Calvin/AndroidStudioProjects/RecipeBook/app/src/main/res/font/montserrat.xml" value="0.434375" />
         <entry key="..\:/Users/Calvin/AndroidStudioProjects/RecipeBook/app/src/main/res/layout/activity_login.xml" value="0.33469202898550726" />
         <entry key="..\:/Users/Calvin/AndroidStudioProjects/RecipeBook/app/src/main/res/layout/activity_main_recipe_menu.xml" value="0.4" />
-        <entry key="..\:/Users/Calvin/AndroidStudioProjects/RecipeBook/app/src/main/res/layout/activity_register.xml" value="0.23072916666666668" />
+        <entry key="..\:/Users/Calvin/AndroidStudioProjects/RecipeBook/app/src/main/res/layout/activity_register.xml" value="0.264" />
       </map>
     </option>
   </component>
