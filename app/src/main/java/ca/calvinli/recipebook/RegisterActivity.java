@@ -108,13 +108,13 @@ public class RegisterActivity extends AppCompatActivity {
                 {
                     String userID = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
                     String userCreatedMessage = "User " + userID + " Created";
-                    Toast.makeText(RegisterActivity.this, userCreatedMessage,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), userCreatedMessage,Toast.LENGTH_SHORT).show();
 
-                    // Map for user metadata
-                    Users userData = new Users(fullName, email);
+                    // User Class for user metadata
+                    Users user = new Users(fullName, email);
 
                     DatabaseReference userIDDatabaseReference = database.getReference("users/" + userID);
-                    userIDDatabaseReference.setValue(userData);
+                    userIDDatabaseReference.setValue(user);
 
                     startActivity(new Intent(getApplicationContext(),MainRecipeMenuActivity.class));
                 }

@@ -108,12 +108,12 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     String loginMessage = "User " + fAuth.getUid() + " has logged in.";
                     Log.i(ACTIVITY_NAME, loginMessage);
-                    Toast.makeText(LoginActivity.this, loginMessage,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), loginMessage,Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(),MainRecipeMenuActivity.class));
                 }
                 else{
                     String errorMessage = "Error: " + Objects.requireNonNull(task.getException()).getMessage();
-                    Toast.makeText(LoginActivity.this, errorMessage, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
                 }
                 progressBar.setVisibility(View.GONE);
             });
