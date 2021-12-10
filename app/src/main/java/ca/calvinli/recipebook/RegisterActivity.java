@@ -124,8 +124,8 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), userCreatedMessage,Toast.LENGTH_SHORT).show();
 
                     // User Class for user metadata
-                    Users user = new Users(fullName, email);
 
+                    Users user = new Users(fullName, email);
                     DatabaseReference userIDDatabaseReference = database.getReference("users/" + userID);
                     userIDDatabaseReference.setValue(user);
 
