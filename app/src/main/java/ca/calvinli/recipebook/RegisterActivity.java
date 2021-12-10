@@ -79,9 +79,9 @@ public class RegisterActivity extends AppCompatActivity {
     private void setOnClickRegisterBtn()
     {
         rRegisterBtn.setOnClickListener(view -> {
+            String fullName = rFullName.getText().toString().trim();
             String email = rEmail.getText().toString().trim();
-            String password = rPassword.getText().toString().trim();
-            String fullName = rFullName.getText().toString();
+            String password = rPassword.getText().toString();
 
             if(TextUtils.isEmpty(email))
             {
@@ -111,9 +111,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, userCreatedMessage,Toast.LENGTH_SHORT).show();
 
                     // Map for user metadata
-                    HashMap<String, String> userData = new HashMap<>();
-                    userData.put("fullName",fullName);
-                    userData.put("email",email);
+                    Users userData = new Users(fullName, email);
 
                     DatabaseReference userIDDatabaseReference = database.getReference("users/" + userID);
                     userIDDatabaseReference.setValue(userData);
