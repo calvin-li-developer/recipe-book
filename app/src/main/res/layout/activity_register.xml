@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/login_background_v2"
     android:visibility="visible"
-    tools:context=".RegisterActivity">
+    tools:context=".RegisterActivity"
+    android:id="@+id/register_page">
 
     <TextView
         android:id="@+id/textView"

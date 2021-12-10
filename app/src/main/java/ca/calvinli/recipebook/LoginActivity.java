@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -37,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
     Button lLoginBtn;
     TextView lRegisterBtn;
     ProgressBar progressBar;
+    ConstraintLayout loginPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         lRegisterBtn = findViewById(R.id.loginRegisterBtn);
         lLoginBtn = findViewById(R.id.loginBtn);
         progressBar = findViewById(R.id.progressBarLogin);
+        loginPage = findViewById(R.id.login_page);
 
         //TODO remove this later
         lEmail.setText("lixx4090@mylaurier.ca");
@@ -56,13 +59,9 @@ public class LoginActivity extends AppCompatActivity {
         hideActionBar();
         newUserInstance();
 
+        setOnClickLayoutPage();
         setOnClickRegisterButton();
         setOnClickLoginButton();
-    }
-
-    private void setOnClickRegisterButton()
-    {
-        lRegisterBtn.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), RegisterActivity.class)));
     }
 
     @Override
@@ -83,6 +82,16 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    private void setOnClickLayoutPage()
+    {
+        loginPage.setOnClickListener(view -> hideKeyboard(this));
+    }
+
+    private void setOnClickRegisterButton()
+    {
+        lRegisterBtn.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), RegisterActivity.class)));
+    }
+
     private void setOnClickLoginButton()
     {
         lLoginBtn.setOnClickListener(view -> {
@@ -101,7 +110,6 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             progressBar.setVisibility(View.VISIBLE);
-
             // Authenticate the user
             fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
                 if(task.isSuccessful())
@@ -117,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 progressBar.setVisibility(View.GONE);
             });
-            hideKeyboard(LoginActivity.this);
+            hideKeyboard(this);
         });
     }
 

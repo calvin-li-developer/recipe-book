@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -41,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
     Button rRegisterBtn;
     TextView rLoginBtn;
     ProgressBar progressBar;
+    ConstraintLayout registerPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +55,12 @@ public class RegisterActivity extends AppCompatActivity {
         rRegisterBtn = findViewById(R.id.registerBtn);
         rLoginBtn = findViewById(R.id.registerLoginBtn);
         progressBar = findViewById(R.id.progressBarRegister);
+        registerPage = findViewById(R.id.register_page);
 
         hideActionBar();
         endUserSession();
 
+        setOnClickLayoutPage();
         setOnClickLoginButton();
         setOnClickRegisterBtn();
     }
@@ -70,7 +74,10 @@ public class RegisterActivity extends AppCompatActivity {
             fAuth.signOut();
         }
     }
-
+    private void setOnClickLayoutPage()
+    {
+        registerPage.setOnClickListener(view -> hideKeyboard(this));
+    }
     private void setOnClickLoginButton()
     {
         rLoginBtn.setOnClickListener(view -> finish());
@@ -130,7 +137,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 progressBar.setVisibility(View.GONE);
             });
-            hideKeyboard(RegisterActivity.this);
+            hideKeyboard(this);
         });
 
     }
