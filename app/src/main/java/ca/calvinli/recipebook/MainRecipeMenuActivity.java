@@ -26,8 +26,10 @@ public class MainRecipeMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_recipe_menu);
+
         logOutButton = findViewById(R.id.log_out);
 
+        hideActionBar();
         setOnClickLogOutButton();
     }
 
@@ -38,5 +40,13 @@ public class MainRecipeMenuActivity extends AppCompatActivity {
             fAuth.signOut();
             finish();
         });
+    }
+
+    private void hideActionBar()
+    {
+        if(getSupportActionBar() != null)
+        {
+            getSupportActionBar().hide();
+        }
     }
 }

@@ -116,7 +116,6 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     String loginMessage = "User " + fAuth.getUid() + " has logged in.";
                     Log.i(ACTIVITY_NAME, loginMessage);
-                    Toast.makeText(getApplicationContext(), loginMessage,Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(),MainRecipeMenuActivity.class));
                 }
                 else{

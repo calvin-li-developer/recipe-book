@@ -19,5 +19,7 @@
 
     <!--  MAIN RECIPE ACTIVITY  -->
     <string name="logout_button_text">LOG OUT</string>
-
+    <string name="add_recipe_text">ADD RECIPE</string>
+    <string name="view_recipe_text">VIEW RECIPE</string>
+    <string name="app_info_text">APP INFO</string>
 </resources>
