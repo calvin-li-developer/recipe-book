@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         loginPage = findViewById(R.id.login_page);
 
         //TODO remove this later
-        lEmail.setText("lixx4090@mylaurier.ca");
+        lEmail.setText("calvin.li@mylaurier.ca");
         lPassword.setText("123456");
 
         hideActionBar();
