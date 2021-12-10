@@ -116,13 +116,13 @@ public class RegisterActivity extends AppCompatActivity {
                     DatabaseReference userIDDatabaseReference = database.getReference("users/" + userID);
                     userIDDatabaseReference.setValue(user);
 
-                    startActivity(new Intent(getApplicationContext(),MainRecipeMenuActivity.class));
+                    startActivity(new Intent(getApplicationContext(), MainRecipeMenuActivity.class));
                 }
                 else{
                     String errorMessage = "Error: " + Objects.requireNonNull(task.getException()).getMessage();
                     Toast.makeText(RegisterActivity.this, errorMessage, Toast.LENGTH_LONG).show();
-                    progressBar.setVisibility(View.GONE);
                 }
+                progressBar.setVisibility(View.GONE);
             });
             hideKeyboard(RegisterActivity.this);
         });
