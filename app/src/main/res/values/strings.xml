@@ -1,6 +1,6 @@
 <resources>
     <!--  GLOBAL APP STRINGS -->
-    <string name="app_name">Recipe Book</string>
+    <string name="app_name">RECIPE BOOK</string>
 
     <!--  LOGIN ACTIVITY  -->
     <string name="login_button_text">LOGIN</string>
