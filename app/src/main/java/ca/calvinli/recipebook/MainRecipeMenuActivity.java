@@ -2,9 +2,9 @@ package ca.calvinli.recipebook;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,6 +21,9 @@ public class MainRecipeMenuActivity extends AppCompatActivity {
 
     // Layout Objects
     Button logOutButton;
+    Button addRecipeButton;
+    Button viewRecipeButton;
+    Button accountInfoButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +31,15 @@ public class MainRecipeMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_recipe_menu);
 
         logOutButton = findViewById(R.id.log_out);
+        addRecipeButton = findViewById(R.id.add_recipe);
+        viewRecipeButton = findViewById(R.id.view_recipe);
+        accountInfoButton = findViewById(R.id.account_info);
 
         hideActionBar();
         setOnClickLogOutButton();
+        setOnClickAddRecipeButton();
+        setOnClickViewRecipeButton();
+        setOnClickAccountInfoButton();
     }
 
     private void setOnClickLogOutButton()
@@ -40,6 +49,21 @@ public class MainRecipeMenuActivity extends AppCompatActivity {
             fAuth.signOut();
             finish();
         });
+    }
+
+    private void setOnClickAddRecipeButton()
+    {
+        addRecipeButton.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), AddRecipeActivity.class)));
+    }
+
+    private void setOnClickViewRecipeButton()
+    {
+        viewRecipeButton.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), ViewRecipeActivity.class)));
+    }
+
+    private void setOnClickAccountInfoButton()
+    {
+        accountInfoButton.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), UserAccountActivity.class)));
     }
 
     private void hideActionBar()

@@ -1,26 +1,19 @@
 package ca.calvinli.recipebook;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
@@ -56,8 +49,8 @@ public class LoginActivity extends AppCompatActivity {
         lEmail.setText("calvin.li@mylaurier.ca");
         lPassword.setText("123456");
 
-        hideActionBar();
-        newUserInstance();
+        App.hideActionBar(getSupportActionBar());
+        App.newUserInstance(fAuth);
 
         setOnClickLayoutPage();
         setOnClickRegisterButton();
@@ -69,22 +62,12 @@ public class LoginActivity extends AppCompatActivity {
     {
         super.onResume();
         Log.i(ACTIVITY_NAME, "onResume()");
-        newUserInstance();
-    }
-
-    private void newUserInstance()
-    {
-        // Check if there still is a logged in user.
-        if (fAuth.getCurrentUser() != null)
-        {
-            // Log out their account
-            fAuth.signOut();
-        }
+        App.newUserInstance(fAuth);
     }
 
     private void setOnClickLayoutPage()
     {
-        loginPage.setOnClickListener(view -> hideKeyboard(this));
+        loginPage.setOnClickListener(view -> App.hideKeyboard(this));
     }
 
     private void setOnClickRegisterButton()
@@ -124,23 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 progressBar.setVisibility(View.GONE);
             });
-            hideKeyboard(this);
+            App.hideKeyboard(this);
         });
-    }
-
-    public void hideKeyboard(Activity activity) {
-        View view = activity.findViewById(android.R.id.content);
-        if (view != null) {
-            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
-    }
-
-    private void hideActionBar()
-    {
-        if(getSupportActionBar() != null)
-        {
-            getSupportActionBar().hide();
-        }
     }
 }

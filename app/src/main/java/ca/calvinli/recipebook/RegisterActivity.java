@@ -57,26 +57,17 @@ public class RegisterActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBarRegister);
         registerPage = findViewById(R.id.register_page);
 
-        hideActionBar();
-        endUserSession();
+        App.hideActionBar(getSupportActionBar());
+        App.newUserInstance(fAuth);
 
         setOnClickLayoutPage();
         setOnClickLoginButton();
         setOnClickRegisterBtn();
     }
 
-    private void endUserSession()
-    {
-        // Check if there still is a logged in user.
-        if (fAuth.getCurrentUser() != null)
-        {
-            // Log out their account
-            fAuth.signOut();
-        }
-    }
     private void setOnClickLayoutPage()
     {
-        registerPage.setOnClickListener(view -> hideKeyboard(this));
+        registerPage.setOnClickListener(view -> App.hideKeyboard(this));
     }
     private void setOnClickLoginButton()
     {
@@ -137,24 +128,8 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 progressBar.setVisibility(View.GONE);
             });
-            hideKeyboard(this);
+            App.hideKeyboard(this);
         });
 
-    }
-
-    public void hideKeyboard(Activity activity) {
-        View view = activity.findViewById(android.R.id.content);
-        if (view != null) {
-            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
-    }
-
-    private void hideActionBar()
-    {
-        if(getSupportActionBar() != null)
-        {
-            getSupportActionBar().hide();
-        }
     }
 }
